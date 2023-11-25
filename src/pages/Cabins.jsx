@@ -1,20 +1,23 @@
-import { useEffect } from "react";
 import Heading from "../ui/Heading";
 import Row from "../ui/Row";
-import { getCabins } from "../services/apiCabins";
+import CabinTable from "../features/cabins/CabinTable";
+import AddCabin from "../features/cabins/AddCabin";
+import CabinTableOperations from "../features/cabins/CabinTableOperations";
 
 function Cabins() {
-console.log(430);
-  useEffect(function(){
-    getCabins().then((data) => console.log(data));
-    console.log(56);
-  }, []);
-
   return (
-    <Row type="horizontal">
-      <Heading as="h1">All cabins</Heading>
-      <p>TEST</p>
-    </Row>
+    <>
+      <Row type="horizontal">
+        <Heading as="h1">All cabins</Heading>
+        {/* filter */}
+        <CabinTableOperations />
+      </Row>
+
+      <Row type="vertical">
+        <CabinTable />
+        <AddCabin />
+      </Row>
+    </>
   );
 }
 

@@ -13,3 +13,16 @@ const StyledSelect = styled.select`
   font-weight: 500;
   box-shadow: var(--shadow-sm);
 `;
+
+//...propw is used to grap the white class styles
+export default function Select({ options, value, onChange, ...props }) {
+  return (
+    <StyledSelect value={value} onChange={onChange} {...props}>
+      {options.map((option) => (
+        <option value={option.value} key={option.value}>
+          {option.label}
+        </option>
+      ))}
+    </StyledSelect>
+  );
+}
