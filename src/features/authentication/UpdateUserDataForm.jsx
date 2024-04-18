@@ -27,6 +27,7 @@ function UpdateUserDataForm() {
     e.preventDefault();
 
     if (!fullName) return;
+    
     updateUser(
       { fullName, avatar },
       {
